@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#123b43">
+<title>VOZ EM FOCO | Laboratório Acadêmico</title>
+<style>
+:root{--ink:#16353a;--muted:#61777a;--teal:#176b69;--mint:#dff3ec;--paper:#f5f8f7;--line:#d9e5e2;--white:#fff;--gold:#e9b95d;--red:#a33d3d}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.5 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+header{background:linear-gradient(125deg,#123b43,#176b69);color:#fff;padding:28px 20px 24px}
+.wrap{max-width:1100px;margin:auto}header .eyebrow{font-size:.76rem;letter-spacing:.15em;text-transform:uppercase;color:#bde4d8;font-weight:700}h1{font-size:clamp(1.8rem,4vw,2.8rem);line-height:1.1;margin:.4rem 0}header p{max-width:680px;color:#e0f1ed;margin:.6rem 0 0}
+.pill{display:inline-block;border:1px solid #bde4d8;border-radius:999px;padding:4px 10px;font-size:.78rem;margin-top:15px}
+nav{display:flex;gap:8px;flex-wrap:wrap;padding:16px 0}button,.tab{border:0;border-radius:10px;padding:11px 15px;font:inherit;font-weight:650;cursor:pointer;transition:.15s}
+.tab{background:#e5eeeb;color:var(--ink)}.tab.active{background:var(--teal);color:white}
+main{padding:0 20px 38px}.panel{display:none}.panel.active{display:block}
+.card{background:var(--white);border:1px solid var(--line);border-radius:16px;padding:22px;margin-bottom:16px;box-shadow:0 5px 18px #16353a08}
+.card h2{font-size:1.18rem;margin:0 0 5px}.sub{color:var(--muted);font-size:.92rem;margin:0 0 18px}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}.grid.three{grid-template-columns:repeat(3,minmax(0,1fr))}
+.field{display:flex;flex-direction:column;gap:6px;min-width:0}.field.full{grid-column:1/-1}label,.field-label{font-size:.9rem;font-weight:650}
+input,select,textarea{width:100%;border:1px solid #c8d8d4;background:#fff;border-radius:9px;padding:11px 12px;font:inherit;color:var(--ink)}textarea{min-height:95px;resize:vertical}input:focus,select:focus,textarea:focus{outline:3px solid #bce4d8;border-color:var(--teal)}
+.checks{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}.check{display:flex;align-items:flex-start;gap:8px;border:1px solid var(--line);border-radius:10px;padding:10px;font-size:.9rem}.check input{width:auto;margin-top:5px;accent-color:var(--teal)}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:15px}.primary{background:var(--teal);color:#fff}.secondary{background:#e5eeeb;color:var(--ink)}.outline{background:#fff;border:1px solid var(--line);color:var(--ink)}button:hover{filter:brightness(.97);transform:translateY(-1px)}
+.note{border-left:4px solid var(--gold);background:#fff8e8;padding:12px 14px;border-radius:0 9px 9px 0;color:#594a2a;font-size:.9rem}
+.metric{background:#f2f8f6;border:1px solid var(--line);padding:15px;border-radius:12px}.metric strong{display:block;font-size:1.4rem;color:var(--teal)}
+.range-row{display:grid;grid-template-columns:1fr auto;align-items:center;gap:12px}.range-row input{padding:0;accent-color:var(--teal)}.range-value{font-weight:750;color:var(--teal);min-width:2ch;text-align:right}
+.report{border:1px solid var(--line);border-radius:12px;padding:20px;background:white;min-height:120px}.report h2,.report h3{margin-top:0}.report p{margin:.45rem 0}.report ul{padding-left:22px}
+footer{text-align:center;color:var(--muted);font-size:.85rem;padding:20px}
+.small{font-size:.82rem;color:var(--muted)}.status{font-size:.88rem;color:var(--teal);font-weight:700}
+@media(max-width:700px){.grid,.grid.three{grid-template-columns:1fr}.checks{grid-template-columns:repeat(2,minmax(0,1fr))}.card{padding:17px}header{padding-top:23px}}
+@media print{body{background:#fff}.no-print,header,nav,.note,.actions,footer{display:none!important}main{padding:0}.panel{display:none!important}#relatorio{display:block!important}.card{box-shadow:none;border:0;padding:0}.report{border:0;padding:0}body *{visibility:hidden}#relatorio,#relatorio *{visibility:visible}#relatorio{position:absolute;left:0;top:0;width:100%}}
+</style>
+</head>
+<body>
+<header>
+<div class="wrap">
+<div class="eyebrow">Fonoaudiologia • Prática acadêmica</div>
+<h1>VOZ EM FOCO</h1>
+<p>Laboratório acadêmico de avaliação vocal, análise acústica da fala e exercícios fonoaudiológicos.</p>
+<span class="pill">Versão educacional • Sem cadastro</span>
+</div>
+</header>
+<main class="wrap">
+<nav class="no-print" aria-label="Seções do sistema">
+<button class="tab active" data-tab="avaliacao">1. Avaliação</button>
+<button class="tab" data-tab="exercicios">2. Exercícios vocais</button>
+<button class="tab" data-tab="relatorio">3. Relatório</button>
+</nav>
+
+<section id="avaliacao" class="panel active">
+<div class="card">
+<h2>Identificação da atividade</h2><p class="sub">Use um código fictício ou identificação acadêmica. Não insira dados pessoais de pacientes.</p>
+<div class="grid">
+<div class="field"><label for="aluno">Aluno(a) / grupo</label><input id="aluno" placeholder="Ex.: Grupo 03"></div>
+<div class="field"><label for="codigo">Código da atividade</label><input id="codigo" placeholder="Ex.: VOZ-001"></div>
+<div class="field"><label for="data">Data da prática</label><input id="data" type="date"></div>
+<div class="field"><label for="avaliador">Professor(a) / avaliador(a)</label><input id="avaliador" placeholder="Nome do docente"></div>
+<div class="field full"><label for="objetivo">Objetivo da atividade</label><input id="objetivo" placeholder="Ex.: observar parâmetros vocais antes e depois de exercício"></div>
+<div class="field full"><label for="queixa">Contexto / queixa simulada</label><textarea id="queixa" placeholder="Descreva o cenário fictício proposto para a aula."></textarea></div>
+</div>
+</div>
+<div class="card">
+<h2>Observação perceptivo-auditiva</h2><p class="sub">Marque os aspectos observados no exercício. As opções não representam diagnóstico automático.</p>
+<div class="checks">
+<label class="check"><input type="checkbox" name="percept" value="Qualidade vocal sem alteração perceptível"> Qualidade vocal sem alteração perceptível</label>
+<label class="check"><input type="checkbox" name="percept" value="Rouquidão / rugosidade"> Rouquidão / rugosidade</label>
+<label class="check"><input type="checkbox" name="percept" value="Soprosidade"> Soprosidade</label>
+<label class="check"><input type="checkbox" name="percept" value="Tensão vocal perceptível"> Tensão vocal perceptível</label>
+<label class="check"><input type="checkbox" name="percept" value="Instabilidade"> Instabilidade</label>
+<label class="check"><input type="checkbox" name="percept" value="Ressonância a observar"> Ressonância a observar</label>
+<label class="check"><input type="checkbox" name="percept" value="Intensidade a observar"> Intensidade a observar</label>
+<label class="check"><input type="checkbox" name="percept" value="Frequência / pitch a observar"> Frequência / pitch a observar</label>
+<label class="check"><input type="checkbox" name="percept" value="Articulação a observar"> Articulação a observar</label>
+</div>
+</div>
+<div class="card">
+<h2>Parâmetros acústicos</h2><p class="sub">Insira valores obtidos por software ou disponibilizados no caso didático. Não são calculados automaticamente pelo navegador.</p>
+<div class="grid three">
+<div class="field"><label for="f0">Frequência fundamental (F0), Hz</label><input id="f0" type="number" min="0" step="any" placeholder="Ex.: 220"></div>
+<div class="field"><label for="jitter">Jitter (%)</label><input id="jitter" type="number" min="0" step="any" placeholder="Ex.: 0,8"></div>
+<div class="field"><label for="shimmer">Shimmer (%)</label><input id="shimmer" type="number" min="0" step="any" placeholder="Ex.: 3,2"></div>
+<div class="field full"><label for="acustica">Outras observações acústicas</label><textarea id="acustica" placeholder="Ex.: qualidade da gravação, tarefa vocal, duração, intensidade, harmônicos ou formantes observados."></textarea></div>
+</div>
+<div class="note" style="margin-top:15px">Interpretação: considere tarefa vocal, equipamento, qualidade da gravação, idade, contexto e protocolo utilizado. Não use um valor isolado para concluir diagnóstico.</div>
+</div>
+<div class="actions no-print"><button class="primary" onclick="go('exercicios')">Continuar para exercícios →</button><button class="secondary" onclick="demo()">Carregar exemplo fictício</button><button class="outline" onclick="clearAll()">Limpar formulário</button></div>
+</section>
+
+<section id="exercicios" class="panel">
+<div class="card">
+<h2>Planejamento do exercício vocal</h2><p class="sub">Selecione uma tarefa para a prática acadêmica e registre as orientações.</p>
+<div class="grid">
+<div class="field"><label for="exercicio">Exercício</label><select id="exercicio">
+<option value="">Selecione…</option><option>Fonação em tubo / canudo (SOVT)</option><option>Vibração de lábios</option><option>Vibração de língua</option><option>Sons nasais / ressonância</option><option>Glissandos vocais</option><option>Escala de intensidade confortável</option><option>Leitura expressiva</option><option>Outro exercício orientado pelo docente</option>
+</select></div>
+<div class="field"><label for="foco">Foco didático</label><select id="foco"><option value="">Selecione…</option><option>Coordenação pneumofonoarticulatória</option><option>Eficiência e conforto fonatório</option><option>Ressonância</option><option>Flexibilidade vocal</option><option>Controle de intensidade</option><option>Expressividade e prosódia</option><option>Observação acústica</option></select></div>
+<div class="field"><label for="duracao">Duração / repetições</label><input id="duracao" placeholder="Ex.: 3 séries de 5 repetições"></div>
+<div class="field"><label for="instrucao">Orientação do docente</label><input id="instrucao" placeholder="Ex.: manter esforço confortável"></div>
+</div>
+</div>
+<div class="card">
+<h2>Percepção de conforto</h2><p class="sub">Escala didática subjetiva de 0 a 10. 0 = nenhum conforto; 10 = máximo conforto percebido.</p>
+<div class="grid">
+<div class="field"><label for="antes">Conforto antes do exercício</label><div class="range-row"><input id="antes" type="range" min="0" max="10" value="5" oninput="document.getElementById('antesV').textContent=this.value"><span class="range-value" id="antesV">5</span></div></div>
+<div class="field"><label for="depois">Conforto depois do exercício</label><div class="range-row"><input id="depois" type="range" min="0" max="10" value="5" oninput="document.getElementById('depoisV').textContent=this.value"><span class="range-value" id="depoisV">5</span></div></div>
+<div class="field full"><label for="resposta">Resposta observada / percepção do aluno</label><textarea id="resposta" placeholder="Registre mudanças percebidas, facilidade, esforço ou ausência de mudança."></textarea></div>
+<div class="field full"><label for="conduta">Discussão / próximos passos</label><textarea id="conduta" placeholder="Ex.: repetir a tarefa, comparar gravações, discutir os dados com o professor."></textarea></div>
+</div>
+<div class="note" style="margin-top:15px">Interrompa a atividade se houver dor, desconforto importante, tontura ou esforço excessivo. Exercícios devem seguir a orientação do docente e os objetivos da prática.</div>
+<div class="actions no-print"><button class="primary" onclick="go('relatorio');buildReport()">Gerar relatório →</button><button class="secondary" onclick="go('avaliacao')">← Voltar à avaliação</button></div>
+</div>
+</section>
+
+<section id="relatorio" class="panel">
+<div class="card">
+<h2>Relatório acadêmico</h2><p class="sub">Revise o resumo abaixo. Você pode imprimir ou salvar em PDF pelo navegador.</p>
+<div class="report" id="reportOutput"><p>Preencha a avaliação e os exercícios; depois selecione “Gerar relatório”.</p></div>
+<div class="actions no-print"><button class="primary" onclick="buildReport()">Atualizar relatório</button><button class="secondary" onclick="window.print()">Imprimir / salvar PDF</button><button class="outline" onclick="downloadReport()">Baixar relatório (.txt)</button><button class="outline" onclick="copyReport()">Copiar texto</button></div>
+<p id="status" class="status" role="status"></p>
+</div>
+<div class="note">Este recurso é educacional e não substitui avaliação clínica, julgamento profissional ou supervisão docente. Os dados ficam apenas nesta sessão do navegador; não são enviados a um servidor nem sincronizados entre dispositivos. Ao fechar ou atualizar a página, o formulário pode ser perdido.</div>
+</section>
+</main>
+<footer>VOZ EM FOCO • Ferramenta educacional demonstrativa • Não realiza diagnóstico nem análise acústica automática.</footer>
+<script>
+document.getElementById('data').value = new Date().toISOString().slice(0,10);
+function go(id){document.querySelectorAll('.panel').forEach(p=>p.classList.toggle('active',p.id===id));document.querySelectorAll('.tab').forEach(b=>b.classList.toggle('active',b.dataset.tab===id));if(id==='relatorio')buildReport();window.scrollTo({top:0,behavior:'smooth'})}
+document.querySelectorAll('.tab').forEach(b=>b.addEventListener('click',()=>go(b.dataset.tab)));
+function val(id){return document.getElementById(id).value.trim()}
+function checked(name){return [...document.querySelectorAll('input[name="'+name+'"]:checked')].map(x=>x.value)}
+function esc(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function line(label,value){return '<p><strong>'+label+':</strong> '+(value?esc(value):'Não informado')+'</p>'}
+function buildReport(){
+ const percept=checked('percept');
+ const data=[
+ ['Aluno(a) / grupo',val('aluno')],['Código',val('codigo')],['Data',val('data')],['Professor(a) / avaliador(a)',val('avaliador')],['Objetivo',val('objetivo')],['Contexto / queixa simulada',val('queixa')]
+ ];
+ let h='<h2>VOZ EM FOCO — Relatório de prática acadêmica</h2><p><em>Material didático; não constitui laudo clínico.</em></p>';
+ data.forEach(([a,b])=>h+=line(a,b));
+ h+='<h3>Observação perceptivo-auditiva</h3>';
+ h+=percept.length?'<ul>'+percept.map(x=>'<li>'+esc(x)+'</li>').join('')+'</ul>':'<p>Nenhum aspecto selecionado.</p>';
+ h+='<h3>Parâmetros acústicos</h3>'+line('F0 (Hz)',val('f0'))+line('Jitter (%)',val('jitter'))+line('Shimmer (%)',val('shimmer'))+line('Outras observações',val('acustica'));
+ h+='<h3>Exercício vocal</h3>'+line('Exercício',val('exercicio'))+line('Foco didático',val('foco'))+line('Duração / repetições',val('duracao'))+line('Orientação do docente',val('instrucao'));
+ h+='<h3>Percepção e discussão</h3>'+line('Conforto antes (0–10)',document.getElementById('antes').value)+line('Conforto depois (0–10)',document.getElementById('depois').value)+line('Resposta observada',val('resposta'))+line('Discussão / próximos passos',val('conduta'));
+ h+='<hr><p class="small">Gerado no VOZ EM FOCO. Os parâmetros devem ser interpretados no contexto da tarefa, da gravação e do protocolo adotado.</p>';
+ document.getElementById('reportOutput').innerHTML=h;
+}
+function reportText(){return document.getElementById('reportOutput').innerText}
+function downloadReport(){buildReport();const blob=new Blob([reportText()],{type:'text/plain;charset=utf-8'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='relatorio-voz-em-foco.txt';a.click();URL.revokeObjectURL(a.href);document.getElementById('status').textContent='Relatório baixado.'}
+async function copyReport(){buildReport();try{await navigator.clipboard.writeText(reportText());document.getElementById('status').textContent='Relatório copiado.'}catch(e){document.getElementById('status').textContent='A cópia automática não está disponível neste navegador. Selecione o texto do relatório e copie manualmente.'}}
+function demo(){
+ document.getElementById('aluno').value='Grupo demonstrativo A';document.getElementById('codigo').value='VOZ-DEMO-01';document.getElementById('objetivo').value='Comparar a percepção de conforto antes e depois de uma tarefa vocal simulada.';document.getElementById('queixa').value='Caso fictício para discussão em sala. Dados inseridos exclusivamente para demonstração.';document.getElementById('f0').value='220';document.getElementById('jitter').value='0.8';document.getElementById('shimmer').value='3.2';document.getElementById('acustica').value='Valores ilustrativos, não correspondem a uma pessoa real nem a uma faixa normativa.';document.getElementById('exercicio').value='Fonação em tubo / canudo (SOVT)';document.getElementById('foco').value='Eficiência e conforto fonatório';document.getElementById('duracao').value='3 séries de 5 repetições';document.getElementById('instrucao').value='Realizar com conforto, sem aumentar o esforço.';document.getElementById('resposta').value='Exemplo fictício: o grupo relata percepção de menor esforço. Confirmar e discutir criticamente na prática.';document.getElementById('conduta').value='Comparar as observações e discutir limitações do caso com o docente.';document.getElementById('antes').value=4;document.getElementById('depois').value=7;document.getElementById('antesV').textContent='4';document.getElementById('depoisV').textContent='7';document.querySelectorAll('input[name="percept"]').forEach(x=>x.checked=false);document.querySelector('input[name="percept"][value="Qualidade vocal sem alteração perceptível"]').checked=true;buildReport();document.getElementById('status').textContent='Exemplo fictício carregado. Revise os dados antes de gerar o relatório.'}
+function clearAll(){if(!confirm('Deseja limpar os campos desta atividade?'))return;document.querySelectorAll('input:not([type=checkbox]):not([type=range]),textarea').forEach(x=>{if(x.id==='data')x.value=new Date().toISOString().slice(0,10);else x.value=''});document.querySelectorAll('input[type=checkbox]').forEach(x=>x.checked=false);document.querySelectorAll('select').forEach(x=>x.selectedIndex=0);document.getElementById('antes').value=5;document.getElementById('depois').value=5;document.getElementById('antesV').textContent='5';document.getElementById('depoisV').textContent='5';document.getElementById('reportOutput').innerHTML='<p>Preencha a avaliação e os exercícios; depois selecione “Gerar relatório”.</p>';document.getElementById('status').textContent='Formulário limpo.'}
+</script>
+</body>
+</html>
